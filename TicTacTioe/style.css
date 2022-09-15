@@ -1,0 +1,13 @@
+.gameboard {
+    display: grid;
+    grid-template: 100px 100px 100px/ 100px 100px 100px;
+    
+}
+
+.gameboard > div {
+    border: 5px solid lightseagreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
