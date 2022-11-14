@@ -1,0 +1,30 @@
+:root {
+    background-color: orange;
+}
+
+body * {
+    border: 0.2rem solid darkred;
+}
+
+.header {
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 32px;
+}
+
+.tab {
+    background-color: yellow;
+}
+
+.main {
+    background-color: yellow;
+}
+
+.content-card {
+    background-color: rgb(214, 183, 6);
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+}
