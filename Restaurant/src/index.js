@@ -83,10 +83,10 @@ function init() {
     homeButton.addEventListener('click', () => {
         renderPage(homePage);
     })
-    var homeButton 
-    var menuButton
-    var contactButton
-    var pageContainer
+    var homeButton;
+    var menuButton;
+    var contactButton;
+    var pageContainer;
     
     menuButton.addEventListener('click', () => {
         renderPage(menuPage);
@@ -95,10 +95,16 @@ function init() {
     contactButton.addEventListener('click', () => {
         renderPage(contactPage);
     })
-    
+
     function renderPage(page) {
         pageContainer.innerHTML = page;
     }
+}
+
+module.exports = function(source) {
+    return `export default function() {
+        document.appendChild(myImport)
+    }`
 }
 
 
