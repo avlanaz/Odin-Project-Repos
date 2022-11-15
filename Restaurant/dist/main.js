@@ -110,13 +110,43 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/contact.js":
+/*!************************!*\
+  !*** ./src/contact.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar contactPage = (`\n<h1>Contact Us</h1>\n\n<div class=\"card-container\">\n    <div class=\"card\">\n        <p>Baba Sahip <br/> 0301-000-000 </p>\n    </div>\n    <div class=\"card\">\n        <p>Sef Efendi <br/> 0301-000-000 </p>\n    </div>\n    <div class=\"card\">\n        <p>Teyze Garson <br/> 0301-000-000 </p>\n    </div>\n</div>\n`)\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contactPage);\n\n//# sourceURL=webpack://restaurant/./src/contact.js?");
+
+/***/ }),
+
+/***/ "./src/home.js":
+/*!*********************!*\
+  !*** ./src/home.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar homePage = (`\n    <div class=\"main\">\n        <div class=\"content-card\">\n            <h1>About</h1>\n            <p>CracMeBar is a stylish Irish Bar open for business aint it.</p>\n        </div>\n        <div class=\"content-card\">\n            <h1>Hours</h1>\n            <ul>\n                <li>Mon-Sat: CLOSED</li>\n                <li>Sun: 'Til the wee hours of night</li>\n            </ul>\n        </div>\n        <div class=\"content-card\">\n            <h1>Location</h1>\n            <p>420 Spire St, Spiresquare, Dublin</p>\n        </div>\n    </div>`\n)\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (homePage);\n\n//# sourceURL=webpack://restaurant/./src/home.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\nconsole.log(\"To run again: use 'npm run build'\");\n\n// Home code\n\nvar homePage = (`\n    <div class=\"main\">\n        <div class=\"content-card\">\n            <h1>About</h1>\n            <p>CracMeBar is a stylish Irish Bar open for business aint it.</p>\n        </div>\n        <div class=\"content-card\">\n            <h1>Hours</h1>\n            <ul>\n                <li>Mon-Sat: CLOSED</li>\n                <li>Sun: 'Til the wee hours of night</li>\n            </ul>\n        </div>\n        <div class=\"content-card\">\n            <h1>Location</h1>\n            <p>420 Spire St, Spiresquare, Dublin</p>\n        </div>\n    </div>`\n)\n\n\nvar contactPage = (`\n<h1>Contact Us</h1>\n\n<div class=\"card-container\">\n    <div class=\"card\">\n        <p>Baba Sahip <br/> 0301-000-000 </p>\n    </div>\n    <div class=\"card\">\n        <p>Sef Efendi <br/> 0301-000-000 </p>\n    </div>\n    <div class=\"card\">\n        <p>Teyze Garson <br/> 0301-000-000 </p>\n    </div>\n</div>\n`)\n\nvar menuPage = (`\n        <h1>Menu</h1>\n    \n    <div class=\"card-container submenu\">\n        <h2>Mains</h2>\n        <div class=\"card\">Kebab</div>\n        <div class=\"card\">Domates Corbayi</div>\n        <div class=\"card\">Riz</div>\n    </div>\n    \n    <div class=\"card-container submenu\">\n        <h2>Deserts</h2>\n        <div class=\"card\">Baklava</div>\n        <div class=\"card\">Kolum</div>\n        <div class=\"card\">Asure</div>\n    </div>\n    \n    <div class=\"card-container submenu\">\n        <h2>Drinks</h2>\n        <div class=\"card\">Ayran</div>\n        <div class=\"card\">Cay</div>\n        <div class=\"card\">Kahve</div>\n    </div>`\n)\n\nvar homeButton;\nvar menuButton;\nvar contactButton;\nvar pageContainer;\n\nwindow.onload = init;\n\nfunction init() {\n    // Set up the DOM functions\n    homeButton = document.getElementById(\"home-button\");\n    menuButton = document.getElementById(\"menu-button\");\n    contactButton = document.getElementById(\"contact-button\");\n    \n    pageContainer = document.getElementById(\"page-container\");\n    \n    homeButton.addEventListener('click', () => {\n        renderPage(homePage);\n    })\n    var homeButton \n    var menuButton\n    var contactButton\n    var pageContainer\n    \n    menuButton.addEventListener('click', () => {\n        renderPage(menuPage);\n    })\n    \n    contactButton.addEventListener('click', () => {\n        renderPage(contactPage);\n    })\n    \n    function renderPage(page) {\n        pageContainer.innerHTML = page;\n    }\n}\n\n\n\n\n\n//# sourceURL=webpack://restaurant/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _home_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.js */ \"./src/home.js\");\n/* harmony import */ var _menu_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu.js */ \"./src/menu.js\");\n/* harmony import */ var _contact_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contact.js */ \"./src/contact.js\");\n\n\n\n\nconsole.log(\"To run again: use 'npm run build'\");\n\nvar homeButton;\nvar menuButton;\nvar contactButton;\nvar pageContainer;\n\nwindow.onload = init;\n\nfunction init() {\n    // Set up the DOM functions\n    homeButton = document.getElementById(\"home-button\");\n    menuButton = document.getElementById(\"menu-button\");\n    contactButton = document.getElementById(\"contact-button\");\n    \n    pageContainer = document.getElementById(\"page-container\");\n    \n    homeButton.addEventListener('click', () => {\n        renderPage(_home_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n    })\n    var homeButton;\n    var menuButton;\n    var contactButton;\n    var pageContainer;\n    \n    menuButton.addEventListener('click', () => {\n        renderPage(_menu_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n    })\n    \n    contactButton.addEventListener('click', () => {\n        renderPage(_contact_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\n    })\n\n    function renderPage(page) {\n        pageContainer.innerHTML = page;\n    }\n}\n\n\n\n\n\n//# sourceURL=webpack://restaurant/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar menuPage = (`\n        <h1>Menu</h1>\n    \n    <div class=\"card-container submenu\">\n        <h2>Mains</h2>\n        <div class=\"card\">Kebab</div>\n        <div class=\"card\">Domates Corbayi</div>\n        <div class=\"card\">Riz</div>\n    </div>\n    \n    <div class=\"card-container submenu\">\n        <h2>Deserts</h2>\n        <div class=\"card\">Baklava</div>\n        <div class=\"card\">Kolum</div>\n        <div class=\"card\">Asure</div>\n    </div>\n    \n    <div class=\"card-container submenu\">\n        <h2>Drinks</h2>\n        <div class=\"card\">Ayran</div>\n        <div class=\"card\">Cay</div>\n        <div class=\"card\">Kahve</div>\n    </div>`\n)\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuPage);\n\n//# sourceURL=webpack://restaurant/./src/menu.js?");
 
 /***/ })
 
