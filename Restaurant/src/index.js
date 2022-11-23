@@ -2,6 +2,7 @@ import './style.css';
 import homePage from './home.js'
 import menuPage from './menu.js'
 import contactPage from './contact.js'
+import initWebPage from './init.js'
 console.log("To run again: use 'npm run build'");
 
 var homeButton;
@@ -9,9 +10,26 @@ var menuButton;
 var contactButton;
 var pageContainer;
 
-window.onload = init;
+// Helper to arrange page functions
+const getPage = {
+    "home": homePage,
+    "menu": menuPage,
+    "contact": contactPage
+};
 
-function init() {
+initWebPage();
+loadPage("home");
+
+function loadPage(idPage) {
+    // Get page according to the "idPage"
+    const page = getPage[idPage];
+
+    // Then make contentContainer to display that page
+    const pageContainer = document.getElementById("content-card");
+    pageContainer.innerHTML = page;
+}
+
+function initPage() {
     // Set up the DOM functions
     homeButton = document.getElementById("home-button");
     menuButton = document.getElementById("menu-button");
@@ -39,6 +57,3 @@ function init() {
         pageContainer.innerHTML = page;
     }
 }
-
-
-
