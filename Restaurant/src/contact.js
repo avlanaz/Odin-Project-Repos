@@ -8,21 +8,21 @@ var contactPage = (`
 <div class="card-container">
     <div class="card">
         <div class="contact-detail">
-            <h1>Ser Sahip</h1>
+            <h2>Ser Sahip</h2>
             <p>0301-xxx-xxx</p>
         </div>
         <img src=${babaURL} />
     </div>
     <div class="card">
         <div class="contact-detail">
-            <h1>Baba Chef</h1>
+            <h2>Baba Chef</h2>
             <p>0301-xxx-xxx</p>
         </div>
         <img src=${sefURL} />
     </div>
     <div class="card">
         <div class="contact-detail">
-            <h1>Auntie Garson</h1>
+            <h2>Auntie Garson</h2>
             <p>0301-xxx-xxx</p>
         </div>
         <img src=${teyzeURL} />

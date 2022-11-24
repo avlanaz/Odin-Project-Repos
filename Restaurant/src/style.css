@@ -2,11 +2,46 @@
     background-color: orange;
 }
 
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
 body * {
     border: 0.2rem solid darkred;
 }
 
+.contact-detail {
+    width: 70%;
+}
+
+.main h1 {
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card img {
+    object-fit: cover;
+    width: 200px;
+    height: 250px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center
+}
+
 .header {
+    width: 100%;
     background-color: yellow;
     display: flex;
     flex-direction: row;
@@ -16,10 +51,13 @@ body * {
 
 .tab {
     background-color: yellow;
+    border-radius: 50% 50% 0% 0%;
+    width: 5rem;
 }
 
 .main {
     background-color: yellow;
+    width: 60vw;
     min-width: 400px;
 }
 
