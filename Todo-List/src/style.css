@@ -1,0 +1,9 @@
+* {
+    border: 3px solid black;
+}
+
+#content {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
