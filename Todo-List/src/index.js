@@ -1,4 +1,5 @@
-alert("This is Todo-List")
+import './style.css';
+import createElement from './createElement.js'
 /* To Do
 O Create class "todo"
 - implement UI to:
@@ -46,6 +47,6 @@ TodoProject.prototype.getItems = function() {
 let todoTest = new TodoItem("a", "b", "c", "d", "e");
 let projectTest = new TodoProject("title", "desc", [todoTest]);
 
-let todoDiv = createTodoDivElement(projectTest);
+let todoDiv = createElement("TodoDiv", projectTest);
 const content = document.getElementById("content");
 content.appendChild(todoDiv);

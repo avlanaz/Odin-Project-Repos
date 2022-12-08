@@ -1,5 +1,9 @@
-export default function createPageElement(eleName, ...params) {
-    
+export default function createElement(elemName, ...params) {
+    if (elemName === "TodoDiv") {
+        // ...params = [todoProject]
+        return createTodoDivElement(params[0]);
+    }
+    return;
 }
 
 function createHeaderElement() {

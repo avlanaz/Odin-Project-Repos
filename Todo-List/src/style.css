@@ -7,3 +7,34 @@
     margin: 0;
     padding: 0;
 }
+
+header {
+
+}
+
+.page-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+
+}
+
+.todo-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.todo-cards-container {
+    display: flex;
+}
+
+.todo-title {
+
+}
+
+.todo-card {
+
+}
