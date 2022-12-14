@@ -4,61 +4,53 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="content">
-      <!--X Header             
-            X Project Sidebar
-            X Main Page
-            X    Title Card
-            X    Todo Cards -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="content">
+			<header>MyTodoList</header>
 
-      <header>MyTodoList</header>
+			<div class="page-container">
+				<div class="sidebar">Projects:</div>
 
-      <div class="page-container">
-        <div class="sidebar">Projects:</div>
+				<div class="todo-page">
+					<div class="todo-title">MyProject</div>
 
-        
+          <button class="add-todo">(+)</button>
 
-        <div class="todo-page">
+					<div class="todo-cards-container">
+						<div class="todo-card">
+							<div>title</div>
+							<div>desc</div>
+							<div>dueDate</div>
+							<div>priority</div>
+							<div>notes</div>
+						</div>
 
-            <div class="todo-title">MyProject</div>
+						<div class="todo-card">
+							<div>title</div>
+							<div>desc</div>
+							<div>dueDate</div>
+							<div>priority</div>
+							<div>notes</div>
+						</div>
 
-          <div class="todo-cards-container">
-              <div class="todo-card">
-                <div>title</div>
-                <div>desc</div>
-                <div>dueDate</div>
-                <div>priority</div>
-                <div>notes</div>
-              </div>
+						<div class="todo-card">
+							<div>title</div>
+							<div>desc</div>
+							<div>dueDate</div>
+							<div>priority</div>
+							<div>notes</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-              <div class="todo-card">
-                <div>title</div>
-                <div>desc</div>
-                <div>dueDate</div>
-                <div>priority</div>
-                <div>notes</div>
-              </div>
-
-              <div class="todo-card">
-                <div>title</div>
-                <div>desc</div>
-                <div>dueDate</div>
-                <div>priority</div>
-                <div>notes</div>
-              </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <script src="main.js"></script>
-  </body>
+		<script src="main.js"></script>
+	</body>
 </html>

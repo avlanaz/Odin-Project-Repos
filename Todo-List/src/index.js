@@ -1,7 +1,16 @@
 import './style.css';
 import createElement from './createElement.js'
+import TodoItem from './todoItem.js'
+import TodoProject from './todoProject.js'
+
+/* Tips
+- use min/max-height
+- use calc
+*/
+
 /* To Do
 O Create class "todo"
+- enable adding todo item via button +
 - implement UI to:
 view all projects
 view all todos in each project (probably just the title and duedate… perhaps changing color for different priorities)
@@ -9,40 +18,33 @@ expand a single todo to see/edit its details
 delete a todo
 */
 
+function addTodo(...params) {
+    let item = new TodoItem(...params);
+    let itemDiv = createElement("TodoItem", item);
 
+    console.log(itemDiv)
+    console.log(document.querySelector(".todo-cards-container"))
+    document.querySelector(".todo-cards-container").appendChild(itemDiv);
+}
 
-function renderTodo() {
+function promptAddTodo() {
+    let itemParams = ["a", "b", "c", "d", "e"];
+    addTodo(...itemParams);
+    
+}
+
+function renderProject() {
 
 }
 
-
-// TodoItem Class //
-function TodoItem(...formParams) {
-    this.title = formParams[0];
-    this.desc = formParams[1];
-    this.dueDate = formParams[2];
-    this.priority = formParams[3];
-    this.notes = formParams[4];
-}
-// (checklist)
-// END //
-
-// (object checklist) desc isDone
-
-
-
-// TodoProject Class //
-function TodoProject(title, desc, itemsArray) {
-    this.title = title;
-    this.desc = desc;
-    this.items = itemsArray;
+function setupOnClicks() {
+    const addButton = document.querySelector(".add-todo");
+    addButton.addEventListener("click", promptAddTodo);
 }
 
-TodoProject.prototype.getItems = function() {
-    return this.items;
-}
-// (checklist)
-// END //
+
+// Initial stuff
+setupOnClicks();
 
 let todoTest = new TodoItem("a", "b", "c", "d", "e");
 let projectTest = new TodoProject("title", "desc", [todoTest]);
