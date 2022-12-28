@@ -1,3 +1,5 @@
+import TodoItem from "./todoItem";
+
 export default function createElement(elemName, ...params) {
     if (elemName === "TodoDiv") {
         // ...params = [todoProject]
@@ -5,10 +7,10 @@ export default function createElement(elemName, ...params) {
     }
     if (elemName === "TodoItem") {
         // ...params = [todoItem]
-        return createTodoPrompt();
+        return createTodoItem(...params);
     }
     if (elemName === "TodoPrompt") {
-        // ...params = [todoItem]
+        // ...params n/a
         return createTodoPrompt();
     }
     return;
@@ -60,7 +62,9 @@ function createTodoDiv(todoProject) {
 }
 
 function createTodoPrompt() {
-    let todoPrompt = document.createElement("form");
+    console.log("Calling createTodoPrompt")
+    let todoPrompt = document.createElement("div");
+    todoPrompt.classList.add("prompt");
     let inputs = [];
 
     inputs.push(createInput("title"));
@@ -74,7 +78,27 @@ function createTodoPrompt() {
          
     });
 
+    let enterButton = document.createElement("button");
+    enterButton.addEventListener("click", onPromptEnterButton);
+    todoPrompt.appendChild(enterButton);
+
     return todoPrompt;
+}
+
+function onPromptEnterButton() {
+    // Get data from prompt then destroy it
+    let promptDiv = document.querySelector(".prompt");
+    let inputElems = promptDiv.querySelectorAll("input");
+    let todoParams = []
+
+    inputElems.forEach(input => {
+        todoParams.push(input.value);
+    });
+    promptDiv.parentNode.removeChild(promptDiv);
+    
+    // Create a TodoItem based on input
+    let itemDiv = createElement("TodoItem", new TodoItem(...todoParams));
+    document.querySelector(".todo-cards-container").appendChild(itemDiv);
 }
 
 function createInput(inputName) {

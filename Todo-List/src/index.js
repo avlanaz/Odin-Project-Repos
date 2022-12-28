@@ -18,18 +18,21 @@ expand a single todo to see/edit its details
 delete a todo
 */
 
-function addTodo(...params) {
-    let item = new TodoItem(...params);
-    let itemDiv = createElement("TodoItem", item);
+function addNewTodo(...params) {
+    let todoItem = new TodoItem(...params);
+    let itemDiv = createElement("TodoItem", todoItem);
 
-    console.log(itemDiv)
-    console.log(document.querySelector(".todo-cards-container"))
     document.querySelector(".todo-cards-container").appendChild(itemDiv);
 }
 
 function promptAddTodo() {
+    //DEBUG Section
     let itemParams = ["a", "b", "c", "d", "e"];
-    addTodo(...itemParams);
+    //addNewTodo(...itemParams);
+
+    //Intended section
+    let prompt = createElement("TodoPrompt");
+    document.querySelector(".todo-cards-container").appendChild(prompt);
     
 }
 
