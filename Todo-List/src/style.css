@@ -1,0 +1,45 @@
+* {
+    border: 3px solid black;
+}
+
+body, #content {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+    height: 8%;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+}
+
+.sidebar {
+    width: 20%;
+}
+
+.todo-page {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-cards-container {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.todo-title {
+    height: 15%;
+}
+
+.todo-card {
+    width: 20%;
+}
