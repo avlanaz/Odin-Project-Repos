@@ -11,8 +11,8 @@ export default function createElement(elemName, ...params) {
         return createTodoItem(...params);
     }
     if (elemName === "TodoPrompt") {
-        // ...params n/a
-        return createTodoPrompt();
+        // ...params = [project, projIndex]
+        return createTodoPrompt(...params);
     }
     if (elemName === "Project") {
         // ...params = [project]
@@ -70,7 +70,7 @@ function createTodoDiv(todoProject) {
     return todoDiv;
 }
 
-function createTodoPrompt() {
+function createTodoPrompt(project, projIndex) {
     console.log("Calling createTodoPrompt")
     let todoPrompt = document.createElement("div");
     todoPrompt.classList.add("prompt");
@@ -88,17 +88,17 @@ function createTodoPrompt() {
     });
 
     let enterButton = document.createElement("button");
-    enterButton.addEventListener("click", onPromptEnterButton);
+    enterButton.addEventListener("click", () => onPromptEnterButton(project, projIndex));
     todoPrompt.appendChild(enterButton);
 
     return todoPrompt;
 }
 
-function onPromptEnterButton() {
+function onPromptEnterButton(project, projIndex) {
     // Get data from prompt then destroy it
     let promptDiv = document.querySelector(".prompt");
     let inputElems = promptDiv.querySelectorAll("input");
-    let todoParams = []
+    let todoParams = [];
 
     inputElems.forEach(input => {
         todoParams.push(input.value);
@@ -106,11 +106,22 @@ function onPromptEnterButton() {
     promptDiv.parentNode.removeChild(promptDiv);
     
     // Create a TodoItem based on input
-    let itemDiv = createElement("TodoItem", new TodoItem(...todoParams));
+    const newItem = new TodoItem(...todoParams);
+    const itemDiv = createElement("TodoItem", newItem);
     document.querySelector(".todo-cards-container").appendChild(itemDiv);
+
+    // Add todoItem to current project's local storage
+    project.todoItems.push(newItem);
+    updateProject(project, projIndex)
 
     // Re-enable add todo button
     document.querySelector(".add-todo").disabled = false;
+}
+
+function updateProject(project, projIndex) {
+    let projects = localStorage.getObj("todo-projects");
+    projects[projIndex] = project;
+    localStorage.setObj("todo-projects", projects);
 }
 
 function createInput(inputName) {

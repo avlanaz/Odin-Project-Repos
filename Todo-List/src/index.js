@@ -3,6 +3,9 @@ import createElement from './createElement.js'
 import TodoItem from './todoItem.js'
 import TodoProject from './todoProject.js'
 
+var currProjectIndex = null;
+var currProject = null;
+
 function main() {
     // Initial stuff
     setupOnClicks();
@@ -10,6 +13,9 @@ function main() {
 
     let todoTest = new TodoItem("a", "b", "c", "d", "e");
     let projectTest = new TodoProject("title", "desc", [todoTest]);
+
+    currProjectIndex = 0;
+    currProject = 0;
 
     renderProjectAsCurrent(projectTest);
     
@@ -50,7 +56,7 @@ function promptAddTodo() {
     // Disable Add Button
     document.querySelector(".add-todo").disabled = true;
 
-    let prompt = createElement("TodoPrompt");
+    let prompt = createElement("TodoPrompt", currProject, currProjectIndex);
     document.querySelector(".todo-cards-container").appendChild(prompt);
     
 }
@@ -67,23 +73,26 @@ function renderProjects() {
         localStorage.setObj("todo-projects", projectsArray);
     }
 
-    projectsArray.forEach(project => {
+    projectsArray.forEach((project, index) => {
         const projectDiv = createElement("Project", project);
         container.appendChild(projectDiv);
 
         // Render the project data when its div is clicked
         projectDiv.addEventListener("click", () => {
-            renderProjectAsCurrent(project);
+            renderProjectAsCurrent(project, index);
         });
     });
 }
 
-function renderProjectAsCurrent(project) {
+function renderProjectAsCurrent(project, index) {
     const titleDiv = document.querySelector(".todo-title .title");
     const descDiv = document.querySelector(".todo-title .desc");
 
     titleDiv.innerHTML = project.title;
     descDiv.innerHTML = project.desc;
+
+    currProject = project;
+    currProjectIndex = index;
     renderTodoItems(project.todoItems);
 }
 
