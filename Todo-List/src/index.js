@@ -10,15 +10,6 @@ function main() {
     // Initial stuff
     setupOnClicks();
     renderProjects();
-
-    let todoTest = new TodoItem("a", "b", "c", "d", "e");
-    let projectTest = new TodoProject("title", "desc", [todoTest]);
-
-    currProjectIndex = 0;
-    currProject = 0;
-
-    renderProjectAsCurrent(projectTest);
-    
 }
 
 function addNewProject() {
@@ -79,12 +70,12 @@ function renderProjects() {
 
         // Render the project data when its div is clicked
         projectDiv.addEventListener("click", () => {
-            renderProjectAsCurrent(project, index);
+            renderProjectAsCurrent(projectDiv, project, index);
         });
     });
 }
 
-function renderProjectAsCurrent(project, index) {
+function renderProjectAsCurrent(projectDiv, project, index) {
     const titleDiv = document.querySelector(".todo-title .title");
     const descDiv = document.querySelector(".todo-title .desc");
 
@@ -93,6 +84,8 @@ function renderProjectAsCurrent(project, index) {
 
     currProject = project;
     currProjectIndex = index;
+
+    setupContentEditable(projectDiv);
     renderTodoItems(project.todoItems);
 }
 
@@ -115,6 +108,20 @@ function setupOnClicks() {
     addProject.addEventListener("click", addNewProject);
 }
 
+function setupContentEditable(projectDiv) {
+    // Update and save changes made to title and desc of current project
+    const titleDiv = document.querySelector(".todo-title .title");
+    const descDiv = document.querySelector(".todo-title .desc");
+
+    titleDiv.addEventListener("input", () => {
+        currProject.title = titleDiv.textContent;
+        projectDiv.textContent = titleDiv.textContent;
+    });
+
+    descDiv.addEventListener("input", () => {
+        currProject.desc = descDiv.textContent;
+    });
+}
 
 
 

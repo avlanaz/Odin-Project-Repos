@@ -5,10 +5,10 @@
 
 /* To Do
 O Create class "todo"
-- enable adding todo item via button +
+V enable adding todo item via button +
 
-- add projects in tab
-- enable making new projects
+V add projects in tab
+V enable making new projects
 
 - enable marking todo as finished
 
