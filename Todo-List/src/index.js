@@ -11,9 +11,8 @@ function main() {
     let todoTest = new TodoItem("a", "b", "c", "d", "e");
     let projectTest = new TodoProject("title", "desc", [todoTest]);
 
-    let todoDiv = createElement("TodoDiv", projectTest);
-    const content = document.getElementById("content");
-    content.appendChild(todoDiv);
+    renderProjectAsCurrent(projectTest);
+    
 }
 
 function addNewProject() {
@@ -69,12 +68,34 @@ function renderProjects() {
     }
 
     projectsArray.forEach(project => {
-        container.appendChild(createElement("Project", project));
+        const projectDiv = createElement("Project", project);
+        container.appendChild(projectDiv);
+
+        // Render the project data when its div is clicked
+        projectDiv.addEventListener("click", () => {
+            renderProjectAsCurrent(project);
+        });
     });
 }
 
 function renderProjectAsCurrent(project) {
+    const titleDiv = document.querySelector(".todo-title .title");
+    const descDiv = document.querySelector(".todo-title .desc");
 
+    titleDiv.innerHTML = project.title;
+    descDiv.innerHTML = project.desc;
+    renderTodoItems(project.todoItems);
+}
+
+function renderTodoItems(items) {
+    // Clear container, then add current project's items
+    const container = document.querySelector(".todo-cards-container");
+    container.innerHTML = ``;
+
+    items.forEach(item => {
+        const itemCardDiv = createElement("TodoItem", item);
+        container.appendChild(itemCardDiv);
+    });
 }
 
 function setupOnClicks() {

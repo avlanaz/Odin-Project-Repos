@@ -33,11 +33,6 @@ function createTitleCard() {
     let titleCardDiv = document.createElement("div");
     return titleCardDiv;
 }
-function createTodoPage() {
-    let todoPageDiv = document.createElement("div");
-    return todoPageDiv;
-}
-
 
 function createProject(project) {
     let projectDiv = document.createElement("div");
@@ -56,7 +51,7 @@ function createTodoItem(todoItem) {
 
     let innerHtml = ``;
     for (const attrKey in todoItem) {
-        innerHtml = innerHtml + `${todoItem[attrKey]} <br/>`;
+        innerHtml = innerHtml + `<div class="todo-entry">${todoItem[attrKey]}</div>`;
     }
     itemDiv.innerHTML = innerHtml;
 

@@ -2,10 +2,10 @@
 // TodoProject Class //
 export default class TodoProject {
 
-    constructor (title, desc, itemsArray) {
+    constructor (title, desc, todoItems) {
         this.title = title;
         this.desc = desc;
-        this.todoItems = itemsArray;
+        this.todoItems = todoItems;
     }
 
     getTodoItems() {
