@@ -3,20 +3,37 @@ import createElement from './createElement.js'
 import TodoItem from './todoItem.js'
 import TodoProject from './todoProject.js'
 
-/* Tips
-- use min/max-height
-- use calc
-*/
+function main() {
+    // Initial stuff
+    setupOnClicks();
+    renderProjects();
 
-/* To Do
-O Create class "todo"
-- enable adding todo item via button +
-- implement UI to:
-view all projects
-view all todos in each project (probably just the title and duedate… perhaps changing color for different priorities)
-expand a single todo to see/edit its details
-delete a todo
-*/
+    let todoTest = new TodoItem("a", "b", "c", "d", "e");
+    let projectTest = new TodoProject("title", "desc", [todoTest]);
+
+    let todoDiv = createElement("TodoDiv", projectTest);
+    const content = document.getElementById("content");
+    content.appendChild(todoDiv);
+}
+
+function addNewProject() {
+    // Make default project
+    let newProject = new TodoProject("New Project", "No description yet", []);
+
+    // Add it to localStorage
+    let projects = localStorage.getObj("todo-projects");
+    if (projects === null) {
+        // reset array of projects
+        projects = [];
+        localStorage.setObj("todo-projects", projects);
+    }
+    projects.push(newProject);
+    localStorage.setObj("todo-projects", projects);
+
+    // refresh sidebar
+    renderProjects();
+}
+
 
 function addNewTodo(...params) {
     let todoItem = new TodoItem(...params);
@@ -31,27 +48,54 @@ function promptAddTodo() {
     //addNewTodo(...itemParams);
 
     //Intended section
+    // Disable Add Button
+    document.querySelector(".add-todo").disabled = true;
+
     let prompt = createElement("TodoPrompt");
     document.querySelector(".todo-cards-container").appendChild(prompt);
     
 }
 
-function renderProject() {
+function renderProjects() {
+    // localStorage.removeItem("todo-projects");
+    const container = document.querySelector(".projects-container");
+    container.innerHTML = "";       //Clear the div
+
+    let projectsArray = localStorage.getObj("todo-projects");
+    if (projectsArray === null) {
+        // Initialise storage for projects
+        projectsArray = [];
+        localStorage.setObj("todo-projects", projectsArray);
+    }
+
+    projectsArray.forEach(project => {
+        container.appendChild(createElement("Project", project));
+    });
+}
+
+function renderProjectAsCurrent(project) {
 
 }
 
 function setupOnClicks() {
-    const addButton = document.querySelector(".add-todo");
-    addButton.addEventListener("click", promptAddTodo);
+    const addTodo = document.querySelector(".add-todo");
+    const addProject = document.querySelector(".add-project");
+
+    addTodo.addEventListener("click", promptAddTodo);
+    addProject.addEventListener("click", addNewProject);
 }
 
 
-// Initial stuff
-setupOnClicks();
 
-let todoTest = new TodoItem("a", "b", "c", "d", "e");
-let projectTest = new TodoProject("title", "desc", [todoTest]);
 
-let todoDiv = createElement("TodoDiv", projectTest);
-const content = document.getElementById("content");
-content.appendChild(todoDiv);
+
+// localStorage extension to include objects
+
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
+
+main();

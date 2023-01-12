@@ -1,4 +1,5 @@
 import TodoItem from "./todoItem";
+import TodoProject from "./todoProject"
 
 export default function createElement(elemName, ...params) {
     if (elemName === "TodoDiv") {
@@ -12,6 +13,10 @@ export default function createElement(elemName, ...params) {
     if (elemName === "TodoPrompt") {
         // ...params n/a
         return createTodoPrompt();
+    }
+    if (elemName === "Project") {
+        // ...params = [project]
+        return createProject(...params);
     }
     return;
 }
@@ -34,7 +39,16 @@ function createTodoPage() {
 }
 
 
+function createProject(project) {
+    let projectDiv = document.createElement("div");
+    projectDiv.classList.add("project");
 
+    let innerHtml = project.title;
+    projectDiv.innerHTML += innerHtml;
+    
+
+    return projectDiv;
+}
 
 function createTodoItem(todoItem) {
     let itemDiv = document.createElement("div");
@@ -54,7 +68,7 @@ function createTodoDiv(todoProject) {
     let todoDiv = document.createElement("div");
     todoDiv.classList.add("todo-container");
 
-    todoProject.getItems().forEach(item => {
+    todoProject.getTodoItems().forEach(item => {
         todoDiv.appendChild(createTodoItem(item));
     });
 
@@ -99,6 +113,9 @@ function onPromptEnterButton() {
     // Create a TodoItem based on input
     let itemDiv = createElement("TodoItem", new TodoItem(...todoParams));
     document.querySelector(".todo-cards-container").appendChild(itemDiv);
+
+    // Re-enable add todo button
+    document.querySelector(".add-todo").disabled = false;
 }
 
 function createInput(inputName) {

@@ -1,15 +1,23 @@
-/* To do
-- interact with todoitem
-*/
-// TodoProject Class //
-export default function TodoProject(title, desc, itemsArray) {
-    this.title = title;
-    this.desc = desc;
-    this.items = itemsArray;
-}
 
-TodoProject.prototype.getItems = function() {
-    return this.items;
+// TodoProject Class //
+export default class TodoProject {
+
+    constructor (title, desc, itemsArray) {
+        this.title = title;
+        this.desc = desc;
+        this.todoItems = itemsArray;
+    }
+
+    getTodoItems() {
+        return this.todoItems;
+    }
+
+    addTodoItems(item) {
+        this.todoItems.push(item);
+    }
+
+    
+    removeTodoItems(item) {
+        this.todoItems.remove(item);
+    }
 }
-// (checklist)
-// END //
