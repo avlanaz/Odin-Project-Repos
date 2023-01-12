@@ -5,6 +5,7 @@ import TodoProject from './todoProject.js'
 
 var currProjectIndex = null;
 var currProject = null;
+var currProjectDiv = null;
 
 function main() {
     // Initial stuff
@@ -84,6 +85,7 @@ function renderProjectAsCurrent(projectDiv, project, index) {
 
     currProject = project;
     currProjectIndex = index;
+    currProjectDiv = projectDiv;
 
     setupContentEditable(projectDiv);
     renderTodoItems(project.todoItems);
@@ -108,19 +110,27 @@ function setupOnClicks() {
     addProject.addEventListener("click", addNewProject);
 }
 
-function setupContentEditable(projectDiv) {
+function setupContentEditable() {
     // Update and save changes made to title and desc of current project
     const titleDiv = document.querySelector(".todo-title .title");
     const descDiv = document.querySelector(".todo-title .desc");
 
     titleDiv.addEventListener("input", () => {
         currProject.title = titleDiv.textContent;
-        projectDiv.textContent = titleDiv.textContent;
+        currProjectDiv.textContent = titleDiv.textContent;
+        updateProject(currProject, currProjectIndex);
     });
 
     descDiv.addEventListener("input", () => {
         currProject.desc = descDiv.textContent;
+        updateProject(currProject, currProjectIndex);
     });
+}
+
+function updateProject(project, projIndex) {
+    let projects = localStorage.getObj("todo-projects");
+    projects[projIndex] = project;
+    localStorage.setObj("todo-projects", projects);
 }
 
 
